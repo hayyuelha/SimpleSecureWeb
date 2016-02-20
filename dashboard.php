@@ -38,6 +38,8 @@
                     <a href="dashboard.php" class="list-group-item">File List</a>
 					<a href="upload.php" class="list-group-item">Upload</a>
 					<a href="trash.php" class="list-group-item">Trash</a>
+                    <a href="postlist.php" class="list-group-item">Post List</a>
+                    <a href="post.php" class="list-group-item">Post</a>
                     <a href="account.php" class="list-group-item">Account Information</a>
                 </div>
             </div>

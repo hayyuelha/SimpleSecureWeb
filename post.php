@@ -1,21 +1,17 @@
 <?php
 	session_start();
 	require_once("connect/connect.php");
-	require_once("bin/file.php");
-	require_once("bin/register.php");
-	
-	
+	require_once("bin/post.php");
+
 	if($_SESSION['username'] == ""){
 		header("location: login.php");
 	}else{
 		$username = $_SESSION['username'];
-		$Registrator = new Register();
 	}
     include("template/header.php");
-
 ?>
 
-    <!-- Page Content -->
+<!-- Page Content -->
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
@@ -47,13 +43,19 @@
                 </div>
             </div>
             <!-- Content Column -->
-            <div class="col-md-9">
-                <h2>Change Account Information</h2>
-                <form method="post" action="bin/mregister.php?id=3">
-					<label>Username: <?php echo $_SESSION['username']; ?></label><input type="hidden" name="username" value="<?php echo $_SESSION['username'];?>"><br/>
-					<label>Password:</label><input type="text" name="password" value="<?php print $Registrator->getData($_SESSION['username'],"password"); ?>"></br>
-					<label>Email:</label><input type="text" name="email" value=<?php echo $Registrator->getData($_SESSION['username'],"email"); ?>></br>
-					<input type="submit" name="submit" value="Update">
+            <div class="col-md-9" id="content">
+                <h2>Create Post</h2>
+				<form method="post" action="bin/posting.php" enctype="multipart/form-data">
+					<input type="hidden"  name="username" value="<?php echo $_SESSION['username']; ?>">
+					<div class="row">
+						<input type="text" id="title" name="title">
+					</div>
+					<div class="row">
+						<textarea name="content" rows="20" cols="20" id="content"></textarea>
+					</div>
+					<div class="row">
+						<input type="submit" name="submit" value="Post">
+					</div>
 				</form>
             </div>
         </div>
