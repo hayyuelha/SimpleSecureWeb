@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2015 at 01:36 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Generation Time: Feb 20, 2016 at 02:31 PM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `filehosting`
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `file`
 --
 
-CREATE TABLE IF NOT EXISTS `file` (
+CREATE TABLE `file` (
   `fileid` int(5) NOT NULL,
   `filename` text NOT NULL,
   `path` text NOT NULL,
@@ -34,21 +34,13 @@ CREATE TABLE IF NOT EXISTS `file` (
   `username` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `file`
---
-
-INSERT INTO `file` (`fileid`, `filename`, `path`, `status`, `username`) VALUES
-(11111, 'Panduan Membuat Web.pdf', '23232312312321312312312.pdf', 1, 'aryya'),
-(11112, 'Fiu siu.exe', '27827872.exe', 1, 'aryya');
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `username` varchar(20) NOT NULL,
   `password` varchar(32) NOT NULL,
   `email` text NOT NULL,
@@ -60,9 +52,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`username`, `password`, `email`, `active`) VALUES
-('aryya', '84c29c7a16116c6e549fcafdc4a8fcf1', 'a.dwisatya@yahoo.com', 1),
-('aryyaedwisatya', '7c1cadb6887373dacb595c47166bfbd9', 'aryya@gdoogle.com', 0),
-('dwisatya', 'afe22da9ddbcb15d6ae186a56fd280fa', 'dwisatya', 0);
+('aryya', 'c10a1a7e7e58510a04ce991aead31272', 'a.dwisaty4@yahoo.com', 1),
+('aryya32', 'c2a4ea905ed5920238cf3ee2be58be71', 'aryya@aryya.com', 1),
+('hayyu', '45312912dc6b97ba6edd00df8e985a5b', 'hayyu@hayyu.com', 1);
 
 --
 -- Indexes for dumped tables
@@ -72,13 +64,13 @@ INSERT INTO `user` (`username`, `password`, `email`, `active`) VALUES
 -- Indexes for table `file`
 --
 ALTER TABLE `file`
- ADD PRIMARY KEY (`fileid`);
+  ADD PRIMARY KEY (`fileid`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
- ADD PRIMARY KEY (`username`);
+  ADD PRIMARY KEY (`username`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
