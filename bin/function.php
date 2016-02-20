@@ -1,5 +1,7 @@
 <?php
-
+header('X-Frame-Options: SAMEORIGIN');
+header("X-XSS-Protection: 1; mode=block");
+header("X-Content-Type-Options: nosniff");
 function only_for_user($if_true,$if_false){
 	if(isset($_SESSION['username'])){
 		echo $if_true;
