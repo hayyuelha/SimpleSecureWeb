@@ -1,7 +1,11 @@
 <?php
+    session_start();
     include("template/header.php");
     require_once("connect/connect.php");
     require_once("bin/post.php");
+    if($_SESSION['username'] != ""){
+        $username = $_SESSION['username'];
+    }
 ?>
 
     <!-- Page Content -->
