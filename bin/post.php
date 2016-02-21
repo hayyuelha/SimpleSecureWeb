@@ -16,6 +16,12 @@ Class Post {
 		$query = mysql_query($sql);
 		return $query;
 	}
+
+	function getPosts () {
+		$sql = "SELECT * FROM post WHERE isDeleted = '0'";
+		$query = mysql_query($sql);
+		return $query;
+	}
 }
 
 ?>

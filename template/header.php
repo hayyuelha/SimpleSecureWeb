@@ -53,6 +53,9 @@
                         <a href="about.php">About</a>
                     </li>
                     <li>
+                        <a href="posts.php">Posts</a>
+                    </li>
+                    <li>
                         <?php
                             only_for_user('<a href="dashboard.php">Dashboard</a>','');
                         ?>
