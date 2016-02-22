@@ -92,6 +92,22 @@ footer {
     }
 }
 
+#my-post-list {
+    padding-left: 5%;    
+}
+
 #title {
-    
+    width: 100%;
+}
+
+#content2 {
+    width: 100%;
+}
+
+#all-posts {
+    padding-left: 5%;
+}
+
+#comments {
+    padding-left: 2%;
 }

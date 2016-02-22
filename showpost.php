@@ -30,6 +30,7 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
+            	<?php print '<h1 class="page-header">Post: '.$data['title'].'</h1>';?>
                 <ol class="breadcrumb">
                     <li><a href="index.php">Home</a>
                     </li>
@@ -44,25 +45,22 @@
 
         <!-- Intro Content -->
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12" id="all-posts">
                 <?php
-                    
                     print '<div class="row">';
                     print '<div class="row">';
-                    print '<h3>'.$data['title'].'</h3></div>';
-                    print '<div class="row">';
-                    print '<p>'.$data['date'].' | '.$data['username'].'</p></div>';
+                    print '<p><b>'.$data['date'].' | '.$data['username'].'</b></p></div>';
                     print '<div class="row">';
                     print '<p>'.$data['content'].'</p></div>';
-                    print '</div>';
+                    print '</div><hr>';
                 
                 ?>
             </div>
         </div>
         <!-- /.row -->
-        <div class="row">
+        <div class="row" id="comments">
             <div class="col-md-12">
-
+            	<h3>Komentar</h3>
                 <div id="formKomentar">
                     <form method="post" action="bin/mcomment.php?id=1">
                         Nama <input type="text" name="nama"><br/>

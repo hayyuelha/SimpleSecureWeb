@@ -27,7 +27,7 @@
 
         <!-- Intro Content -->
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12" id="all-posts">
                 <?php
                     $postHandler = new Post();
                     $query = $postHandler->getPosts();

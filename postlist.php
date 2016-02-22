@@ -45,7 +45,7 @@
             <!-- Content Column -->
             <div class="col-md-9" id="content">
                 <h2>My Post</h2>
-                <div class="col-md-6">
+                <div id="my-post-list">
                 <?php
 					$postHandler = new Post();
 					$query = $postHandler->getAllPost($username);
@@ -59,7 +59,7 @@
 						print '<div class="row">';
 						print '<p>'.$data['content'].'</p></div>';
 						print '<p><a href="bin/mpost.php?delete='.$data['pid'].'">Delete</a></p>';
-						print '</div>';
+						print '</div><hr>';
 					}
 				?>
 				</div>

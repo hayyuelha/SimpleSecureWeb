@@ -47,13 +47,17 @@
                 <h2>Create Post</h2>
 				<form method="post" action="bin/posting.php" enctype="multipart/form-data">
 					<input type="hidden"  name="username" value="<?php echo $_SESSION['username']; ?>">
-					<div class="row">
+					<div class="col-md-9">
+                        <label>Title: </label>
 						<input type="text" id="title" name="title">
 					</div>
-					<div class="row">
-						<textarea name="content" rows="20" cols="20" id="content"></textarea>
+					<div class="col-md-9">
+                        <div class="row">
+                            <label>Content: </label>
+                        </div>
+						<textarea name="content" rows="10" cols="20" id="content2"></textarea>
 					</div>
-					<div class="row">
+					<div class="col-md-9">
 						<input type="submit" name="submit" value="Post">
 					</div>
 				</form>
