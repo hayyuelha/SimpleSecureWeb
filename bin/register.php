@@ -5,7 +5,7 @@
 		include("connect/connect.php");
 
 	}
-	require_once("function.php");
+	
 
 	Class Register{
 		/* OK */

@@ -6,10 +6,11 @@
 	
 	
     if(isset($_SESSION['username'])){
-		header("location: login.php");
+		
+        $username = $_SESSION['username'];
+        $Registrator = new Register();
 	}else{
-		$username = $_SESSION['username'];
-		$Registrator = new Register();
+		header("location: login.php");
 	}
     include("template/header.php");
 
