@@ -14,11 +14,15 @@
     }
      
     if ( null==$pid ) {
-        header("Location: index.php");
+        
     } else {
-        $postHandler = new Post();
-        $query = $postHandler->getAPost($pid);
-        $data = mysql_fetch_array($query);
+        if(is_numeric($pid)){
+            $postHandler = new Post();
+            $query = $postHandler->getAPost($pid);
+            $data = mysql_fetch_array($query);
+        }else{
+            header("Location: index.php");
+        }
     }
 
     include("template/header.php");

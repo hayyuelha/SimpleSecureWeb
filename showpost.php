@@ -15,12 +15,15 @@
     if ( null==$pid ) {
         header("Location: index.php");
     } else {
-        $postHandler = new Post();
-        $query = $postHandler->getAPost($pid);
-        $data = mysql_fetch_array($query);
-        $commentHandler = new Comment();
-        $comment_query = $commentHandler->getAllComment($data['pid']);
-        
+        if(is_numeric($pid)){
+            $postHandler = new Post();
+            $query = $postHandler->getAPost($pid);
+            $data = mysql_fetch_array($query);
+            $commentHandler = new Comment();
+            $comment_query = $commentHandler->getAllComment($data['pid']);
+        }else{
+            header("Location: index.php");
+        }
     }
 ?>
 
