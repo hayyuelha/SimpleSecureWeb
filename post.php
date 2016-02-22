@@ -3,10 +3,10 @@
 	require_once("connect/connect.php");
 	require_once("bin/post.php");
 
-	if($_SESSION['username'] == ""){
-		header("location: login.php");
-	}else{
+	if(isset($_SESSION['username'])){
 		$username = $_SESSION['username'];
+	}else{
+        header("location: login.php");
 	}
     include("template/header.php");
 ?>

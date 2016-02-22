@@ -5,7 +5,7 @@
 	require_once("bin/register.php");
 	
 	
-	if($_SESSION['username'] == ""){
+    if(isset($_SESSION['username'])){
 		header("location: login.php");
 	}else{
 		$username = $_SESSION['username'];
