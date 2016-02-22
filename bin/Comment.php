@@ -1,13 +1,14 @@
 <?php
 
 Class Comment {
-	function addToDB ($title, $content, $username) {
-		$sql = "INSERT INTO Comment(title, content, username) VALUES ('$title', '$content', '$username')";
+	function addToDB ($nama, $email, $konten,$pid) {
+		$sql = "INSERT INTO comments(com_name, com_email, com_dis,pid_fk) VALUES ('$nama', '$email', '$konten','$pid')";
 		$query = mysql_query($sql);
+		return $query;
 	}
 
 	function softdelete ($id) {
-		$sql = "UPDATE Comment SET isDeleted = '1' WHERE pid = '$id'";
+		$sql = "UPDATE comments SET isDeleted = '1' WHERE pid = '$id'";
 		$query = mysql_query($sql);
 	}
 
@@ -18,13 +19,13 @@ Class Comment {
 	}
 
 	function getComments () {
-		$sql = "SELECT * FROM Comment WHERE isDeleted = '0'";
+		$sql = "SELECT * FROM comments WHERE isDeleted = '0'";
 		$query = mysql_query($sql);
 		return $query;
 	}
 
-	function getAComment ($pid) {
-		$sql = "SELECT * FROM Comment WHERE pid = '$pid'";
+	function getAcomments ($pid) {
+		$sql = "SELECT * FROM comments WHERE pid = '$pid'";
 		$query = mysql_query($sql);
 		return $query;
 	}

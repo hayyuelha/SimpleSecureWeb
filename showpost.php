@@ -64,14 +64,13 @@
             <div class="col-md-12">
 
                 <div id="formKomentar">
-                    <form method="post" action="#">
-                        Nama <input type="text" id="pNama" name="nama"><br/>
-                        Email <input type="text" id="pEmail" name="email" ><br/>
+                    <form method="post" action="bin/mcomment.php?id=1">
+                        Nama <input type="text" name="nama"><br/>
+                        Email <input type="text" name="email" ><br/>
                         Pesan<br/>
-                            <textarea id="pPesan" name="pesan" cols="84" rows="5"></textarea><br/>
-                        <input type="hidden" id="pTanggal" name="tanggal" value="2016-02-22">
-                        <input type="hidden" id="pId" name="id" value="24">
-                        <input type="button" name="postKomentar" value="Post Komentar" onclick="return cekEmail();">
+                            <textarea id="pPesan" name="konten" cols="84" rows="5"></textarea><br/>
+                        <input type="hidden" name="pid" value="<?php echo $data['pid']; ?>">
+                        <input type="submit" value="Post Komentar">
                     </form>
                 </div>
                 <hr/>
