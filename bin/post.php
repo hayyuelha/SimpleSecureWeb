@@ -28,6 +28,11 @@ Class Post {
 		$query = mysql_query($sql);
 		return $query;
 	}
+
+	function editPost ($title,$content,$username,$pid) {
+		$sql = "UPDATE post SET title = '$title', content = '$content' WHERE pid = '$pid' AND username = '$username'";
+		$query = mysql_query($sql);
+	}
 }
 
 ?>
