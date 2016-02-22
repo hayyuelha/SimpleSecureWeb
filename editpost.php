@@ -3,11 +3,24 @@
 	require_once("connect/connect.php");
 	require_once("bin/post.php");
 
-    if(isset($_SESSION['username'])){
-        $username = $_SESSION['username'];
-    }else{
+	if(isset($_SESSION['username'])){
+		$username = $_SESSION['username'];
+	}else{
         header("location: login.php");
+	}
+    $pid = null;
+    if ( !empty($_GET['pid'])) {
+        $pid = $_REQUEST['pid'];
     }
+     
+    if ( null==$pid ) {
+        header("Location: index.php");
+    } else {
+        $postHandler = new Post();
+        $query = $postHandler->getAPost($pid);
+        $data = mysql_fetch_array($query);
+    }
+
     include("template/header.php");
 ?>
 
@@ -44,25 +57,24 @@
             </div>
             <!-- Content Column -->
             <div class="col-md-9" id="content">
-                <h2>My Post</h2>
-                <div id="my-post-list">
-                <?php
-					$postHandler = new Post();
-					$query = $postHandler->getAllPost($username);
-
-					while($data = mysql_fetch_array($query)){
-						print '<div class="row">';
-						print '<div class="row">';
-						print '<h3><a href="showpost.php?pid='.$data['pid'].'">'.$data['title'].'</a></h3></div>';
-						print '<div class="row">';
-						print '<p>'.$data['date'].'</p></div>';
-						print '<div class="row">';
-						print '<p>'.$data['content'].'</p></div>';
-						print '<p><a href="bin/mpost.php?delete='.$data['pid'].'">Delete</a> | <a href="editpost.php?pid='.$data['pid'].'">Edit</a></p>';
-						print '</div><hr>';
-					}
-				?>
-				</div>
+                <h2>Edit Post</h2>
+				<form method="post" action="bin/edit.php" enctype="multipart/form-data">
+					<input type="hidden"  name="username" value="<?php echo $_SESSION['username']; ?>">
+					<input type="hidden"  name="pid" value="<?php echo $data['pid']; ?>">
+                    <div class="col-md-9">
+                        <label>Title: </label>
+						<input type="text" id="title" name="title" value="<?php echo $data['title'];?>">
+					</div>
+					<div class="col-md-9">
+                        <div class="row">
+                            <label>Content: </label>
+                        </div>
+						<textarea name="content" rows="10" cols="20" id="content2"><?php echo $data['content'];?></textarea>
+					</div>
+					<div class="col-md-9">
+						<input type="submit" name="submit" value="Save">
+					</div>
+				</form>
             </div>
         </div>
         <!-- /.row -->
