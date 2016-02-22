@@ -1,5 +1,5 @@
 <?php 
-	require_once("Comment.php");
+	require_once("comment.php");
 	$comment_handler = new Comment();
 	
 	switch ($_GET['id']){
@@ -10,16 +10,6 @@
 				$konten	= 	htmlentities($_POST['konten']);
 				$comment_handler->addToDB($nama,$email,$konten,$pid);
 				header("location: ../showpost.php?pid=".$pid);
-				
 				break;
-		case 2: 
-
-				break;
-		case 3:
-
-				break;
-		case 4:
-				$registrator->showUser();
-				break;	
 	}
 ?>
