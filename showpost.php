@@ -6,20 +6,33 @@
     if(isset($_SESSION['username'])){
         $username = $_SESSION['username'];
     }
+    $pid = null;
+    if ( !empty($_GET['pid'])) {
+        $pid = $_REQUEST['pid'];
+    }
+     
+    if ( null==$pid ) {
+        header("Location: index.php");
+    } else {
+        $postHandler = new Post();
+        $query = $postHandler->getAPost($pid);
+        $data = mysql_fetch_array($query);
+    }
 ?>
 
-    <!-- Page Content -->
+<!-- Page Content -->
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Posts
-                </h1>
                 <ol class="breadcrumb">
                     <li><a href="index.php">Home</a>
                     </li>
-                    <li class="active">Posts</li>
+                    <li><a href="posts.php">Posts</a></li>
+                    <?php
+                    	print '<li class="active">'.$data['title'].'</li>';
+                    ?>
                 </ol>
             </div>
         </div>
@@ -29,18 +42,16 @@
         <div class="row">
             <div class="col-lg-12">
                 <?php
-                    $postHandler = new Post();
-                    $query = $postHandler->getPosts();
-                    while($data = mysql_fetch_array($query)){
-                            print '<div class="row">';
-                            print '<div class="row">';
-                            print '<h3><a href="showpost.php?pid='.$data['pid'].'">'.$data['title'].'</a></h3></div>';
-                            print '<div class="row">';
-                            print '<p>'.$data['date'].' | '.$data['username'].'</p></div>';
-                            print '<div class="row">';
-                            print '<p>'.$data['content'].'</p></div>';
-                            print '</div>';
-                        }
+                    
+                    print '<div class="row">';
+                    print '<div class="row">';
+                    print '<h3>'.$data['title'].'</h3></div>';
+                    print '<div class="row">';
+                    print '<p>'.$data['date'].' | '.$data['username'].'</p></div>';
+                    print '<div class="row">';
+                    print '<p>'.$data['content'].'</p></div>';
+                    print '</div>';
+                
                 ?>
             </div>
         </div>

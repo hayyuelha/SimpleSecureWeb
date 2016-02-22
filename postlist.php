@@ -53,7 +53,7 @@
 					while($data = mysql_fetch_array($query)){
 						print '<div class="row">';
 						print '<div class="row">';
-						print '<h3>'.$data['title'].'</h3></div>';
+						print '<h3><a href="showpost.php?pid='.$data['pid'].'">'.$data['title'].'</a></h3></div>';
 						print '<div class="row">';
 						print '<p>'.$data['date'].'</p></div>';
 						print '<div class="row">';

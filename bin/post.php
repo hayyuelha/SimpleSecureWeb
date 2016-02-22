@@ -22,6 +22,12 @@ Class Post {
 		$query = mysql_query($sql);
 		return $query;
 	}
+
+	function getAPost ($pid) {
+		$sql = "SELECT * FROM post WHERE pid = '$pid'";
+		$query = mysql_query($sql);
+		return $query;
+	}
 }
 
 ?>
